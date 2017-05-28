@@ -6,7 +6,8 @@ import {AuthConfig, IAuthConfig} from './auth.config';
 import {Router} from '@angular/router';
 import {TokenService} from './_services/token.service';
 import {AuthHttp} from './_services/auth-http.service';
-import {LoggedInAuthGuard, LoggedOutAuthGuard} from './_helper/auth.guard';
+import {LoggedInGuard} from './_helper/logged-in.guard';
+import {LoggedOutGuard} from './_helper/logged-out.guard';
 
 
 @NgModule({
@@ -37,9 +38,9 @@ export class AuthModule {
           ]
         },
         {
-          provide: LoggedInAuthGuard,
+          provide: LoggedInGuard,
           useFactory: (tokenService: TokenService, router: Router) => {
-            return new LoggedInAuthGuard(new AuthConfig(config), tokenService, router);
+            return new LoggedInGuard(new AuthConfig(config), tokenService, router);
           },
           deps: [
             TokenService,
@@ -47,9 +48,9 @@ export class AuthModule {
           ]
         },
         {
-          provide: LoggedOutAuthGuard,
+          provide: LoggedOutGuard,
           useFactory: (tokenService: TokenService, router: Router) => {
-            return new LoggedOutAuthGuard(new AuthConfig(config), tokenService, router);
+            return new LoggedOutGuard(new AuthConfig(config), tokenService, router);
           },
           deps: [
             TokenService,

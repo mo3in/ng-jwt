@@ -1,6 +1,6 @@
 {
   "name": "ng-jwt",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "license": "MIT",
   "description": "Helper library for handling JWTs in Angular 2+",
   "repository": {
@@ -15,13 +15,12 @@
   ],
   "author": "Mo3in <hunter.mo3in@gmail.com>",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "dev": "tsc --watch",
+    "test": "karma start",
+    "prepublish": "tsc",
+    "ngc": "ngc"
   },
+  "main": "angular2-jwt.js",
   "private": false,
   "dependencies": {
     "@angular/common": "^4.0.0",
