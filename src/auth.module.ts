@@ -1,24 +1,27 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {Http, HttpModule, RequestOptions} from '@angular/http';
-import {AuthConfig, IAuthConfig} from './auth.config';
-import {Router} from '@angular/router';
-import {TokenService} from './_services/token.service';
-import {AuthHttp} from './_services/auth-http.service';
-import {LoggedInGuard} from './_helper/logged-in.guard';
-import {LoggedOutGuard} from './_helper/logged-out.guard';
+/**
+ * Created by Mo3in on 5/28/2017.
+ */
 
+import {NgModule, ModuleWithProviders} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HttpModule, Http, RequestOptions} from '@angular/http';
+import {RouterModule, Router} from '@angular/router';
+import {TokenService} from "./_services/token.service";
+import {AuthConfig, IAuthConfig} from "./auth.config";
+import {AuthHttp} from "./_services/auth.http";
+import {LoggedOutAuth} from "./_guard/loggedOutAuth.guard";
+import {LoggedInAuth} from "./_guard/loggedInAuth.guard";
 
 @NgModule({
-  declarations: [],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
+    CommonModule,
+    HttpModule,
+    RouterModule
   ],
-  providers: [],
-  bootstrap: []
+  providers: [
+    LoggedInAuth,
+    LoggedOutAuth
+  ]
 })
 export class AuthModule {
   static forRoot(config?: IAuthConfig): ModuleWithProviders {
@@ -38,9 +41,9 @@ export class AuthModule {
           ]
         },
         {
-          provide: LoggedInGuard,
+          provide: LoggedInAuth,
           useFactory: (tokenService: TokenService, router: Router) => {
-            return new LoggedInGuard(new AuthConfig(config), tokenService, router);
+            return new LoggedInAuth(new AuthConfig(config), tokenService, router);
           },
           deps: [
             TokenService,
@@ -48,9 +51,9 @@ export class AuthModule {
           ]
         },
         {
-          provide: LoggedOutGuard,
+          provide: LoggedOutAuth,
           useFactory: (tokenService: TokenService, router: Router) => {
-            return new LoggedOutGuard(new AuthConfig(config), tokenService, router);
+            return new LoggedOutAuth(new AuthConfig(config), tokenService, router);
           },
           deps: [
             TokenService,
@@ -58,6 +61,6 @@ export class AuthModule {
           ]
         }
       ]
-    };
+    }
   }
 }

@@ -1,57 +1,46 @@
 {
   "name": "ng-jwt",
-  "version": "0.2.1",
-  "license": "MIT",
-  "description": "Helper library for handling JWTs in Angular 2+",
+  "version": "0.2.5",
+  "description": "Provides an angular2 auth module to handle authentication based on JWT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsc --watch",
+    "prepublish": "tsc"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mo3in/ng-jwt.git"
+    "url": "git+https://github.com/mo3in/ng-jwt"
   },
   "keywords": [
     "angular",
     "angular2",
+    "authentication",
     "jwt",
-    "authentication"
+    "module",
+    "helper"
   ],
-  "author": "Mo3in <hunter.mo3in@gmail.com>",
-  "scripts": {
-    "dev": "tsc --watch",
-    "test": "karma start",
-    "prepublish": "tsc",
-    "ngc": "ngc"
+  "author": "mo3in <moein.hente@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mo3in/ng-jwt/issues"
   },
-  "main": "angular2-jwt.js",
-  "private": false,
-  "dependencies": {
-    "@angular/common": "^4.0.0",
-    "@angular/compiler": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/forms": "^4.0.0",
-    "@angular/http": "^4.0.0",
-    "@angular/platform-browser": "^4.0.0",
-    "@angular/platform-browser-dynamic": "^4.0.0",
-    "@angular/router": "^4.0.0",
-    "core-js": "^2.4.1",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
-  },
+  "homepage": "https://github.com/mo3in/ng-jwt",
   "devDependencies": {
-    "@angular/cli": "1.0.1",
-    "@angular/compiler-cli": "^4.0.0",
-    "@types/jasmine": "2.5.38",
-    "@types/node": "~6.0.60",
-    "codelyzer": "~2.0.0",
-    "jasmine-core": "~2.5.2",
-    "jasmine-spec-reporter": "~3.2.0",
-    "karma": "~1.4.1",
-    "karma-chrome-launcher": "~2.0.0",
-    "karma-cli": "~1.0.1",
-    "karma-jasmine": "~1.1.0",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
-    "protractor": "~5.1.0",
-    "ts-node": "~2.0.0",
-    "tslint": "~4.5.0",
-    "typescript": "~2.2.0"
+    "@angular/common": "^4.0.1",
+    "@angular/core": "^4.0.1",
+    "@angular/http": "^4.0.1",
+    "@angular/platform-browser": "^4.0.1",
+    "@angular/router": "^4.0.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.2.0",
+    "typescript": "^2.2.2",
+    "zone.js": "^0.8.5"
+  },
+  "peerDependencies": {
+    "@angular/common": "^4.0.1",
+    "@angular/core": "^4.0.1",
+    "@angular/http": "^4.0.1",
+    "@angular/router": "^4.0.1"
   }
 }
