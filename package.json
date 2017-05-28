@@ -1,46 +1,47 @@
 {
-  "name": "ng-jwt",
-  "version": "0.2.5",
-  "description": "Provides an angular2 auth module to handle authentication based on JWT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "scripts": {
-    "dev": "tsc --watch",
-    "prepublish": "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mo3in/ng-jwt"
-  },
-  "keywords": [
-    "angular",
-    "angular2",
-    "authentication",
-    "jwt",
-    "module",
-    "helper"
-  ],
-  "author": "mo3in <moein.hente@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mo3in/ng-jwt/issues"
-  },
-  "homepage": "https://github.com/mo3in/ng-jwt",
-  "devDependencies": {
-    "@angular/common": "^4.0.1",
-    "@angular/core": "^4.0.1",
-    "@angular/http": "^4.0.1",
-    "@angular/platform-browser": "^4.0.1",
-    "@angular/router": "^4.0.1",
-    "reflect-metadata": "^0.1.10",
-    "rxjs": "^5.2.0",
-    "typescript": "^2.2.2",
-    "zone.js": "^0.8.5"
-  },
-  "peerDependencies": {
-    "@angular/common": "^4.0.1",
-    "@angular/core": "^4.0.1",
-    "@angular/http": "^4.0.1",
-    "@angular/router": "^4.0.1"
-  }
+	"name": "ng-jwt",
+	"version": "0.2.5",
+	"description": "Provides an angular2 auth module to handle authentication based on JWT",
+	"main": "dist/index.js",
+	"typings": "dist/index.d.ts",
+	"scripts": {
+		"dev": "tsc --watch",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"prepublish": "tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mo3in/ng-jwt"
+	},
+	"keywords": [
+		"angular",
+		"angular2",
+		"authentication",
+		"jwt",
+		"module",
+		"helper"
+	],
+	"author": "mo3in <moein.hente@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/mo3in/ng-jwt/issues"
+	},
+	"homepage": "https://github.com/mo3in/ng-jwt",
+	"devDependencies": {
+		"@angular/common": "^4.0.1",
+		"@angular/core": "^4.0.1",
+		"@angular/http": "^4.0.1",
+		"@angular/platform-browser": "^4.0.1",
+		"@angular/router": "^4.0.1",
+		"reflect-metadata": "^0.1.10",
+		"rxjs": "^5.2.0",
+		"typescript": "^2.2.2",
+		"zone.js": "^0.8.5"
+	},
+	"peerDependencies": {
+		"@angular/common": "^4.0.1",
+		"@angular/core": "^4.0.1",
+		"@angular/http": "^4.0.1",
+		"@angular/router": "^4.0.1"
+	}
 }

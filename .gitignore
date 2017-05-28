@@ -1,10 +1,3 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
-/dist
-/tmp
-/out-tsc
-
 # dependencies
 /node_modules
 
@@ -24,14 +17,6 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-testem.log
-/typings
 
 # e2e
 /e2e/*.js
@@ -43,3 +28,17 @@ Thumbs.db
 *.d.ts
 *.js
 *.map
+
+
+
+
+# Node generated files
+node_modules
+
+# VS Code
+.vscode
+
+# Configs
+.gitignore
+tsconfig.json
+typings.json
