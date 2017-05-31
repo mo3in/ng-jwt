@@ -1,6 +1,6 @@
 {
 	"name": "ng-jwt",
-	"version": "0.3.8",
+	"version": "1.0.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/mo3in/ng-jwt"
