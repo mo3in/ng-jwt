@@ -1,5 +1,10 @@
+
 # ng-jwt
 
+[![npm version][ico-version]][link-npm]
+[![license][ico-license]][link-npm]
+
+Provides an angular2 auth module to handle authentication based on JWT
 ## Installation
 
 To install this library, run:
@@ -8,63 +13,24 @@ To install this library, run:
 $ npm install ng-jwt --save
 ```
 
-## Consuming your library
-
-Once you have published your library to npm, you can import your library in any Angular application by running:
-
-```bash
-$ npm install ng-jwt
-```
-
-and then from your Angular `AppModule`:
-
-```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-
-// Import your library
-import { SampleModule } from 'ng-jwt';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-
-    // Specify your library as an import
-    LibraryModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+## Sending Requests
+If you want to send a request with the `Authorization` header set with the JWT token you can use the `AuthHttp` class.
+```ts
+import { AuthHttp } from 'angular2-auth';
+...
+@Component({
+  ...
 })
-export class AppModule { }
-```
-
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
-
-```xml
-<!-- You can now use your library component in app.component.html -->
-<h1>
-  {{title}}
-</h1>
-<sampleComponent></sampleComponent>
-```
-
-## Development
-
-To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
-
-```bash
-$ npm run build
-```
-
-To lint all `*.ts` files:
-
-```bash
-$ npm run lint
+export class AppComponent {
+  constructor(private _authHttp: AuthHttp) {}
+  
+  getThing() {
+    this._authHttp.get('/get/thing')
+      .subscribe(
+        data => this.thing = data,
+        error => console.error(error),() => console.log('getThing#done')
+  }
+}
 ```
 
 ## License
