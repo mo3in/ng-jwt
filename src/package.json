@@ -1,0 +1,28 @@
+{
+	"name": "ng-jwt",
+	"version": "0.3.8",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mo3in/ng-jwt"
+	},
+	"author": {
+		"name": "Mo3in",
+		"email": "moein.hente@gmail.com"
+	},
+	"keywords": [
+		"angular"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/mo3in/ng-jwt/issues"
+	},
+	"module": "ng-jwt.js",
+	"typings": "ng-jwt.d.ts",
+	"peerDependencies": {
+		"@angular/core": "^4.0.0",
+		"@angular/http": "^4.1.3",
+		"@angular/router": "^4.1.3",
+		"rxjs": "^5.1.0",
+		"zone.js": "^0.8.4"
+	}
+}

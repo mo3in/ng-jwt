@@ -1,5 +1,5 @@
 /**
- * Created by Mo3in on 5/28/2017.
+ * Created by Mo3in on 5/29/2017.
  */
 
 export interface IAuthConfig {
@@ -8,6 +8,9 @@ export interface IAuthConfig {
 	headerPrefix?: string;
 	noJwtError?: boolean;
 	noTokenScheme?: boolean;
+	loginEndPoint?: string;
+	loginTokenName?: string;
+	loginParams?: ILoginParams;
 	guards?: {
 		loggedInGuard: {
 			redirectUrl: string;
@@ -15,37 +18,44 @@ export interface IAuthConfig {
 		loggedOutGuard: {
 			redirectUrl: string;
 		},
-	}
+	};
+}
+export interface ILoginParams {
+	[key: string]: string;
 }
 
-/**
- * Sets up the authentication configuration.
- */
 
 export class AuthConfig implements IAuthConfig {
-
 	public globalHeaders: Array<Object>;
 	public headerName: string;
 	public headerPrefix: string;
+	public loginEndPoint: string;
+	public loginTokenName: string;
+	public loginParams?: ILoginParams;
 	public noJwtError: boolean;
 	public noTokenScheme: boolean;
+	public guards?: {
+		loggedInGuard: {
+			redirectUrl: string;
+		},
+		loggedOutGuard: {
+			redirectUrl: string;
+		},
+	};
 
-	constructor(config: any = {}) {
-		this.globalHeaders = config.globalHeaders || [];
-		this.headerName = config.headerName || 'Authorization';
-		if (config.headerPrefix) {
-			this.headerPrefix = config.headerPrefix;
-		} else if (config.noTokenScheme) {
-			this.headerPrefix = '';
-		} else {
-			this.headerPrefix = 'Bearer ';
-		}
-		this.noJwtError = config.noJwtError || false;
-		this.noTokenScheme = config.noTokenScheme || false;
+	constructor(config: IAuthConfig = {}) {
+		for (let option in config)
+			this[option] = config[option];
+
+		for (let option in AUTH_CONFIG_DEFAULTS)
+			this[option] = config[option] != null ? config[option] : AUTH_CONFIG_DEFAULTS[option];
 	}
+}
 
-	public getConfig(): IAuthConfig {
-		return this;
-	}
-
+export const AUTH_CONFIG_DEFAULTS: IAuthConfig = {
+	headerName: "Authorization",
+	loginTokenName: "access_token",
+	headerPrefix: "Bearer",
+	noTokenScheme: false,
+	noJwtError: false,
 }

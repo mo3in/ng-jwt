@@ -1,22 +1,16 @@
-/**
- * Created by Mo3in on 5/28/2017.
- */
 import {Injectable} from '@angular/core';
 import {Http, RequestOptionsArgs, RequestOptions, Request, RequestMethod, Headers, Response} from '@angular/http';
 
 import {TokenService} from './token.service';
 
 import {Observable} from 'rxjs/Observable';
-import {Token} from "../_models/token";
-import {AuthConfig, IAuthConfig} from "../auth.config";
+import {Token} from '../_models/token';
+import {AuthConfig} from '../auth.config';
 
 @Injectable()
 export class AuthHttp {
-
-	private config: IAuthConfig;
-
-	constructor(options: AuthConfig, private _tokenService: TokenService, private _http: Http, private _options: RequestOptions) {
-		this.config = options.getConfig();
+	constructor(private config: AuthConfig, private _tokenService: TokenService, private _http: Http, private _options: RequestOptions) {
+		this.config = new AuthConfig(config);
 	}
 
 	private mergeOptions(providedOpts: RequestOptionsArgs, defaultOpts?: RequestOptions) {
@@ -45,8 +39,8 @@ export class AuthHttp {
 		}
 
 		headers.forEach((header: Object) => {
-			let key: string = Object.keys(header)[0];
-			let headerValue: string = (header as any)[key];
+			const key: string = Object.keys(header)[0];
+			const headerValue: string = (header as any)[key];
 			(request.headers as Headers).set(key, headerValue);
 		});
 	}
@@ -57,8 +51,8 @@ export class AuthHttp {
 		}
 
 		// from this point url is always an instance of Request;
-		let req: Request = url as Request;
-		let token: Token = this._tokenService.getToken();
+		const req: Request = url as Request;
+		const token: Token = this._tokenService.getToken();
 		return this.requestWithToken(req, token);
 	}
 
@@ -70,7 +64,7 @@ export class AuthHttp {
 				});
 			}
 		} else {
-			req.headers.set(this.config.headerName, this.config.headerPrefix + token.token);
+			req.headers.set(this.config.headerName, this.config.headerPrefix + " " + token.token);
 		}
 
 		return this._http.request(req);
