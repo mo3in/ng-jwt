@@ -33,7 +33,6 @@ export class AuthConfig implements IAuthConfig {
 	public loginTokenName: string;
 	public loginParams?: ILoginParams;
 	public noJwtError: boolean;
-	public noTokenScheme: boolean;
 	public guards?: {
 		loggedInGuard: {
 			redirectUrl: string;
