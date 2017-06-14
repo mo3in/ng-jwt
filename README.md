@@ -3,7 +3,7 @@
 
 [![NPM](https://nodei.co/npm/ng-jwt.png)](https://npmjs.org/package/ng-jwt)
 
-Provides an angular2 auth module to handle authentication based on JWT
+Provides an Angular auth module to handle authentication based on JWT.
 
 tnx [angular-jwt](https://github.com/ItsDizzy/angular2-auth)
 #### Feature status:
@@ -19,14 +19,16 @@ tnx [angular-jwt](https://github.com/ItsDizzy/angular2-auth)
 
 ## Installation
 
-To install this library, run:
+ng-jwt is available on NPM
 
 ```bash
 $ npm install ng-jwt --save
 ```
 
-## setup && using
-When that is done you will have to include the `AuthModule` into your root module:
+## Setup & Usage
+
+Once the module has been installed, you need to include `AuthModule` into your root module:
+
 ```ts
 import { AuthModule } from 'ng-jwt';
 ...
@@ -43,8 +45,10 @@ import { AuthModule } from 'ng-jwt';
 })
 export class AppModule {}
 ```
-In the forRoot function you can specify a custom config.
-#### Feature status:
+
+In the `forRoot` function you can specify a custom config as well.
+
+### Feature status:
 
 | Feature          |  Desc  |Default                              |
 |------------------|-------------------------------------|--------------|
@@ -55,8 +59,10 @@ In the forRoot function you can specify a custom config.
 | headerPrefix           | Authorization value for  `AuthHttp` Requests  | `Bearer` |
 | guards          | Logged[in/out]  guard redirect router name | [null]  |
 
-## <a name="authentication"></a>Login && LogOut
-if you want to login with `Authorization`:
+### Login && Logout
+
+`AuthenticationService` service comes with`logout` and `login` function built-in:
+
 ```ts
 import {Component} from '@angular/core';
 import {Auth, AuthenticationService} from "ng-jwt";
@@ -78,8 +84,11 @@ export class AppComponent {
 	}
 }
 ```
-## <a name="tokenService"></a>Manual Login && LogOut
-if you want to login with `TokenService`:
+
+#### Manually Login & Logout
+
+In case of of needing a customized Login/Logout functionality, you may use `TokenService`.
+
 ```ts
 import {Component} from '@angular/core';
 import {TokenService} from "ng-jwt";
@@ -106,8 +115,12 @@ export class AppComponent {
 	}
 }
 ```
-## <a name="authHttp"></a>Sending Requests
+
+### Sending Requests
+
 If you want to send a request with the `Authorization` header set with the JWT token you can use the `AuthHttp` class.
+It will set the authentication headers on the request on the fly.
+
 ```ts
 import { AuthHttp } from 'ng-jwt';
 ...
@@ -127,8 +140,11 @@ export class AppComponent {
 }
 ```
 
-## <a name="auth"></a>Check logged  in
-If you want to check app is logged in, you can use `Auth`  class.
+### Login Validation
+
+`Auth` class provides another helper method for authentication validation. By using `Auth.loggedIn` function 
+you can check if the client is logged in. This method returns a `Boolean`.
+
 ```ts
 import {Component, OnInit} from '@angular/core';
 import {Auth} from "ng-jwt";
@@ -147,10 +163,12 @@ export class AppComponent implements OnInit {
 
 ```
 
-## <a name="authGuards"></a>Default auth guards
+## Default Auth Guards
+
 If you want to loggedIn in router:
 
-for authModule config:
+for `authModule` config:
+
 ```ts
 import { AuthModule } from 'ng-jwt';
 ...
@@ -177,4 +195,9 @@ const routes: Routes = [
  ```
 ## License
 
-MIT © [Mo3in](mailto:moein.hente@gmail.com)
+ng-jwt is released under MIT license.
+
+## Author
+
+[Mo3in](mailto:moein.hente@gmail.com)
+
