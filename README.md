@@ -3,7 +3,7 @@
 
 [![NPM](https://nodei.co/npm/ng-jwt.png)](https://npmjs.org/package/ng-jwt)
 
-Provides Angular2 auth module to handle authentication based on JWT.
+Provides an Angular2 auth module to handle authentication based on JWT.
 
 tnx [angular-jwt](https://github.com/ItsDizzy/angular2-auth)
 #### Feature status:
