@@ -2,6 +2,9 @@
 # ng-jwt
 
 [![NPM](https://nodei.co/npm/ng-jwt.png)](https://npmjs.org/package/ng-jwt)
+<br>
+<a href="https://www.npmjs.com/package/ng-jwt"><img src="https://img.shields.io/npm/dt/ng-jwt.svg" alt="Downloads"></a>
+<a href="https://www.npmjs.com/package/ng-jwt"><img src="https://img.shields.io/npm/v/ng-jwt.svg" alt="Version"></a>
 
 Provides an Angular auth module to handle authentication based on JWT.
 

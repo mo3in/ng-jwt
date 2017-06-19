@@ -1,6 +1,6 @@
 {
 	"name": "ng-jwt",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/mo3in/ng-jwt"
@@ -9,8 +9,14 @@
 		"name": "Mo3in",
 		"email": "moein.hente@gmail.com"
 	},
+	"description": "Provides an angular auth module to handle authentication based on JWT",
 	"keywords": [
-		"angular"
+		"angular",
+		"angular2",
+		"authentication",
+		"jwt",
+		"module",
+		"helper"
 	],
 	"license": "MIT",
 	"bugs": {
