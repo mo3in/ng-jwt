@@ -1,14 +1,21 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./src",
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "rootDir": "./src",
-    "lib": [
-      "es2015",
-      "dom"
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "declaration": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "outDir": "./dist",
+        "lib": ["es2017", "dom"]
+    },
+    "files": [
+        "src/index.ts"
     ],
-    "skipLibCheck": true,
-    "types": []
-  }
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
 }
