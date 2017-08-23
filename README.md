@@ -120,28 +120,7 @@ export class AppComponent {
 ```
 
 ### Sending Requests
-
-If you want to send a request with the `Authorization` header set with the JWT token you can use the `AuthHttp` class.
-It will set the authentication headers on the request on the fly.
-
-```ts
-import { AuthHttp } from 'ng-jwt';
-...
-@Component({
-  ...
-})
-export class AppComponent {
-  constructor(private _authHttp: AuthHttp) {}
-
-  getThing() {
-    this._authHttp.get('/get/thing') .subscribe(
-        data => this.thing = data,
-        error => console.error(error),
-        () => console.log('finish ...')
-    )
-  }
-}
-```
+`ng-jwt` using `HttpInterceptor` to modify http headers for authentication. soo you can use `HttpModule` and `HttpClientModule `
 
 ### Login Validation
 
