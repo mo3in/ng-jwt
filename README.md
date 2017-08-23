@@ -120,7 +120,7 @@ export class AppComponent {
 ```
 
 ### Sending Requests
-`ng-jwt` using `HttpInterceptor` to modify http headers for authentication. soo you can use `HttpModule` and `HttpClientModule `
+`ng-jwt` uses `HttpInterceptor` to modify HTTP headers for Authentication. So while using `HttpModule` and `HttpClientModule`, `ng-jwt` would send the Authentication headers alongside the request. 
 
 ### Login Validation
 
