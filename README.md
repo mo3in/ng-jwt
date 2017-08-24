@@ -120,6 +120,7 @@ export class AppComponent {
 ```
 
 ### Sending Requests
+
 `ng-jwt` uses `HttpInterceptor` to modify `HttpClient` headers for Authentication. So while using `HttpClientModule`, `ng-jwt` would send the Authentication headers alongside the request.
 
 for angular < 4.3:

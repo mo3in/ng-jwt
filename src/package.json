@@ -1,0 +1,37 @@
+{
+  "name": "ng-jwt",
+  "version": "1.1.10",
+  "description": "Provides an angular2 auth module to handle authentication based on JWT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mo3in/ng-jwt.git"
+  },
+  "keywords": [
+    "angular",
+    "angular2",
+    "jwt",
+    "module",
+    "auth",
+    "authentication"
+  ],
+  "author": {
+    "name": "Mo3in",
+    "email": "moein.hente@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mo3in/ng-jwt/issues"
+  },
+  "homepage": "https://github.com/mo3in/ng-jwt#readme",
+  "main": "ng-jwt.umd.js",
+  "module": "ng-jwt.js",
+  "jsnext:main": "ng-jwt.js",
+  "typings": "ng-jwt.d.ts",
+  "peerDependencies": {
+    "rxjs": "^5.1.0",
+    "@angular/core": "^2.0.0||^4.0.0",
+    "@angular/http": "^2.0.0||^4.0.0",
+    "@angular/common": "^2.0.0||^4.0.0",
+    "@angular/router": "^2.0.0||^4.0.0"
+  }
+}
