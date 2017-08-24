@@ -6,7 +6,7 @@
 <a href="https://www.npmjs.com/package/ng-jwt"><img src="https://img.shields.io/npm/dt/ng-jwt.svg" alt="Downloads"></a>
 <a href="https://www.npmjs.com/package/ng-jwt"><img src="https://img.shields.io/npm/v/ng-jwt.svg" alt="Version"></a>
 
-Provides an Angular auth module to handle authentication based on JWT.
+Provides an Angular (2-4) auth module to handle authentication based on JWT.
 
 tnx [angular-jwt](https://github.com/ItsDizzy/angular2-auth)
 #### Feature status:
@@ -30,15 +30,15 @@ $ npm install ng-jwt --save
 
 ## Setup & Usage
 
-Once the module has been installed, you need to include `AuthModule` into your root module:
+Once the module has been installed, you need to include `NgJwtModule` into your root module:
 
 ```ts
-import { AuthModule } from 'ng-jwt';
+import { NgJwtModule } from 'ng-jwt';
 ...
 @NgModule({
   imports: [
     ...
-    AuthModule.forRoot({
+    NgJwtModule.forRoot({
         loginEndPoint: 'http://localhost:5000/connect/token',
         loginParams: {"grant_type": "password", "client_id": "roclient.public"}
     }),
@@ -120,11 +120,34 @@ export class AppComponent {
 ```
 
 ### Sending Requests
-`ng-jwt` using `HttpInterceptor` to modify http headers for authentication. soo you can use `HttpModule` and `HttpClientModule `
+`ng-jwt` uses `HttpInterceptor` to modify `HttpClient` headers for Authentication. So while using `HttpClientModule`, `ng-jwt` would send the Authentication headers alongside the request.
 
+for angular < 4.3:
+
+If you want to send a request with the `Authorization` header set with the JWT token you can use the `AuthHttp` class.
+It will set the authentication headers on the request on the fly.
+
+```ts
+import { AuthHttp } from 'ng-jwt';
+...
+@Component({
+  ...
+})
+export class AppComponent {
+  constructor(private _authHttp: AuthHttp) {}
+
+  getThing() {
+    this._authHttp.get('/get/thing') .subscribe(
+        data => this.thing = data,
+        error => console.error(error),
+        () => console.log('finish ...')
+    )
+  }
+}
+```
 ### Login Validation
 
-`Auth` class provides another helper method for authentication validation. By using `Auth.loggedIn` function 
+`Auth` class provides another helper method for authentication validation. By using `Auth.loggedIn` function
 you can check if the client is logged in. This method returns a `Boolean`.
 
 ```ts
@@ -182,4 +205,3 @@ ng-jwt is released under MIT license.
 ## Author
 
 [Mo3in](mailto:moein.hente@gmail.com)
-

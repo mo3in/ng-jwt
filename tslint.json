@@ -8,12 +8,12 @@
       true,
       "check-space"
     ],
-    "curly": false,
+    "curly": true,
     "eofline": true,
-    "forin": false,
+    "forin": true,
     "indent": [
       true,
-      "tabs"
+      "spaces"
     ],
     "label-position": true,
     "max-line-length": [
@@ -59,7 +59,7 @@
       "check-whitespace"
     ],
     "quotemark": [
-      false,
+      true,
       "single"
     ],
     "radix": true,
@@ -89,18 +89,8 @@
       "check-separator",
       "check-type"
     ],
-    "directive-selector": [
-      true,
-      "attribute",
-      "",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "",
-      "kebab-case"
-    ],
+    "directive-selector": [true, "attribute", "", "camelCase"],
+    "component-selector": [true, "element", "", "kebab-case"],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
