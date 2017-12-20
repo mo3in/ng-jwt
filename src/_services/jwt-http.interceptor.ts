@@ -15,7 +15,7 @@ export class JwtHttpInterceptor implements HttpInterceptor {
 
 		let token: Token = this._tokenService.getToken();
 
-		if (!token.isExpired())
+		if ( token && !token.isExpired())
 			req = req.clone({headers: req.headers.set(this.config.headerName, this.config.headerPrefix + " " + token.token)});
 
 		return next.handle(req);
