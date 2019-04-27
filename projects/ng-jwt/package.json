@@ -1,0 +1,8 @@
+{
+  "name": "ng-jwt",
+  "version": "2.0.0-beta0",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  }
+}

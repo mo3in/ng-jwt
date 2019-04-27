@@ -5,7 +5,7 @@ export class TokenError extends Error {
 	name = 'TokenError';
 
 	constructor(message: string) {
-		super(message)
+		super(message);
 	}
 }
 

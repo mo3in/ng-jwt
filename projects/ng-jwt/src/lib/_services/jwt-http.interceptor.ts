@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {Observable} from "rxjs/Observable";
-import {TokenService} from "./token.service";
-import {Token} from "../_models/token";
-import {AuthConfig} from "../auth.config";
+import {TokenService} from './token.service';
+import {Token} from '../_models/token';
+import {AuthConfig} from '../auth.config';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class JwtHttpInterceptor implements HttpInterceptor {
@@ -15,8 +15,9 @@ export class JwtHttpInterceptor implements HttpInterceptor {
 
 		let token: Token = this._tokenService.getToken();
 
-		if ( token && !token.isExpired())
-			req = req.clone({headers: req.headers.set(this.config.headerName, this.config.headerPrefix + " " + token.token)});
+		if (token && !token.isExpired()) {
+			req = req.clone({headers: req.headers.set(this.config.headerName, this.config.headerPrefix + ' ' + token.token)});
+		}
 
 		return next.handle(req);
 	}
